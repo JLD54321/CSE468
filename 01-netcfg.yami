@@ -1,11 +1,20 @@
 network:
-   version: 2
-   renderer: networkd
-   ethernets:
-     enp0s3:
-	dhcp:
-	addresses:
-	- 192.168.0.10/24
-	gateway4: 192.168.0.100
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp0s3:
+    dhcp4: no
+     addresses:
+	- 192.168.0.100/24
+     nameservers:
+	addresses: [8.8.8.8, 8.8.4.4]
+    enp0s8:
+	dhcp: yes
 	nameservers:
-	  addresses: [8.8.8.8, 8.8.4.4]
+	  addresses: [8.8.8.8]
+    enp0s9:
+	dhcp: no
+	addresses:
+	  -10.0.0.100/8
+	nameservers:
+	   addresses: [8.8.8.8, 8.8.4.4]
